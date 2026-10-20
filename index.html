@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>გილოცავთ თერჯოლობას! - მოსაწვევი</title>
+    <!-- ქართული ფონტები -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;600;700&family=Noto+Sans+Georgian:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- CSS ფაილის მიბმა -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ფონური მუსიკა (საქაღალდეში ჩააგდე music.mp3) -->
+    <audio id="bg-music" src="music.mp3" loop preload="auto"></audio>
+
+    <!-- ცვენადი შემოდგომის ფოთლების ეკრანი -->
+    <canvas id="leaves-canvas"></canvas>
+
+    <!-- ზედა მართვის ღილაკები (მუსიკა და დღე/ღამე) -->
+    <div class="top-controls">
+        <button class="control-btn" id="musicBtn" title="მუსიკის ჩართვა/გამორთვა">🔊</button>
+        <button class="control-btn" id="themeBtn" title="ფონის შეცვლა">🌙</button>
+    </div>
+
+    <!-- 1. საწყისი 3D კონვერტი -->
+    <div id="envelope-overlay">
+        <p class="envelope-hint">✨ დააჭირეთ ბეჭედს წერილის გასახსნელად ✨</p>
+        <div class="envelope-wrapper" id="envelope">
+            <div class="envelope-flap"></div>
+            <div class="letter-preview">
+                <h3 class="serif">გილოცავთ თერჯოლობას!</h3>
+                <p>31 ოქტომბერი</p>
+            </div>
+            <div class="envelope-front"></div>
+            <div class="wax-seal">🍇</div>
+        </div>
+    </div>
+
+    <!-- 2. მთავარი მოსაწვევი გვერდი -->
+    <main class="main-container">
+        
+        <!-- მთავარი სექცია (Hero) -->
+        <section class="section hero visible">
+            <span class="autumn-badge">🍁 31 ოქტომბერი, 2026 🍁</span>
+            <h1>გილოცავთ<br>თერჯოლობას!</h1>
+            <div class="ornament-divider">⚜️</div>
+            <p class="hero-subtitle">
+                ოქროსფერი შემოდგომის, ბარაქის, იმერული სტუმართმოყვარეობისა და ტრადიციების ზეიმი ჩვენს ქალაქში
+            </p>
+            <a href="#photos-section" class="btn-gold">მიმოხილვა</a>
+        </section>
+
+        <!-- თერჯოლის ფოტოების გალერეა -->
+        <section class="section" id="photos-section">
+            <h2 class="section-title">ჩვენი მშვენიერი თერჯოლა</h2>
+            <p class="section-subtitle">შემოდგომის ფერებით შემკული იმერეთი</p>
+            
+            <div class="photo-grid">
+                <!-- აქ შეგიძლია ჩასვა შენი ფოტოები: მაგ. src="terjola1.jpg" -->
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" style="filter: sepia(0.35) saturate(1.4);" alt="თერჯოლის ხედი">
+                    <div class="photo-caption">🏛️ ქალაქი თერჯოლა</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=600&q=80" alt="იმერული ვაზი და ღვინო">
+                    <div class="photo-caption">🍇 ციცქა-ცოლიკოურის მხარე</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80" alt="შემოდგომის ბუნება">
+                    <div class="photo-caption">🍁 ოქროსფერი შემოდგომა</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- მოსაწვევის ოფიციალური ტექსტი -->
+        <section class="section" id="invitation-text">
+            <div class="invitation-card">
+                <h2>ძვირფასო სტუმარო,</h2>
+                <p>
+                    გულითადად გილოცავთ და გიწვევთ სახალხო დღესასწაულ <strong>„თერჯოლობის“</strong> საზეიმო ღონისძიებაზე!
+                </p>
+                <p>
+                    <strong>31 ოქტომბერს</strong> ერთად აღვნიშნოთ ჩვენი კუთხის მდიდარი ისტორია, კულტურა, ღვინისა და რთველის ტრადიციები. გელოდებათ საშემოდგომო პავილიონები, იმერული ფოლკლორი, გამოფენები და სადღესასწაულო განწყობა.
+                </p>
+                <div class="ornament-divider">🍂</div>
+                <p class="date-highlight">📅 31 ოქტომბერი</p>
+                <p><strong>📍 ლოკაცია:</strong> ქ. თერჯოლა</p>
+            </div>
+        </section>
+
+        <!-- დღესასწაულამდე დარჩენილი დრო -->
+        <section class="section">
+            <h2 class="section-title">თერჯოლობამდე დარჩენილია</h2>
+            <div class="countdown-box">
+                <div class="time-unit">
+                    <span id="days">00</span>
+                    <small>დღე</small>
+                </div>
+                <div class="time-unit">
+                    <span id="hours">00</span>
+                    <small>საათი</small>
+                </div>
+                <div class="time-unit">
+                    <span id="minutes">00</span>
+                    <small>წუთი</small>
+                </div>
+                <div class="time-unit">
+                    <span id="seconds">00</span>
+                    <small>წამი</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- დასწრების დადასტურება (RSVP) -->
+        <section class="section">
+            <div class="rsvp-card">
+                <h2 class="section-title">დაადასტურეთ დასწრება</h2>
+                <p class="section-subtitle">გთხოვთ მიუთითოთ თქვენი სახელი და გვარი</p>
+                
+                <form id="rsvp-form">
+                    <input type="text" id="guestName" class="form-input" placeholder="სახელი და გვარი" required>
+                    
+                    <div class="choice-buttons">
+                        <button type="button" class="choice-btn active">დიახ, დავესწრები</button>
+                        <button type="button" class="choice-btn">ვერ დავესწრები</button>
+                    </div>
+
+                    <button type="submit" class="btn-gold full-width">დადასტურება</button>
+                    <p id="rsvp-message">✨ გმადლობთ! თქვენი პასუხი მიღებულია. გელოდებით 31 ოქტომბერს თერჯოლობაზე!</p>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            გილოცავთ თერჯოლობას! 🍁🍇 • 31 ოქტომბერი
+        </footer>
+
+    </main>
+
+    <!-- JavaScript ფაილის მიბმა -->
+    <script src="script.js"></script>
+</body>
+</html>
